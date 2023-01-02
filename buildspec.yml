@@ -6,7 +6,7 @@ phases:
       - yarn install
   build:
     commands:
-      - yarn start
+      - yarn build
 
 artifacts:
   files:
