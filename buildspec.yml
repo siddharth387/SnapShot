@@ -14,5 +14,11 @@ phases:
   
   post_build:
     commands:
-      - echo "Updating files in the S3 bucket..."
-      - aws s3 sync dist/SnapShot/ s3://snapshot.in --delete
+      - aws s3 cp --recursive --acl public-read ./build s3://snapshot.in/
+      - echo "Second"
+      - aws s3 cp --acl public-read --cache-control="max-age=0, no-cache, no-store, must-revalidate" ./build/index.html s3://snapshot.in/
+      - echo "Third"
+  artifacts:
+    files:
+    - "build/*"
+    - "build/*/"
