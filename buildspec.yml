@@ -1,16 +1,24 @@
 version: 0.2
 
 phases:
+  install:
+    runtime-versions:
+      nodejs: 12
   pre_build:
     commands:
       - npn install
   build:
     commands:
       - npn start
-      - npn build
+      - npn run build
 
-artifacts:
+  artifacts:
   files:
     - '**/*'
   discard-paths: no
   base-directory: build
+  
+  post_build:
+    commands:
+      - echo "Updating files in the S3 bucket..."
+      - aws s3 sync dist/SnapShot/ s3://snapshot.in --delete
