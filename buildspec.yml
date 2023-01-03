@@ -3,11 +3,11 @@ version: 0.2
 phases:
   pre_build:
     commands:
-      - yarn install
+      - npn install
   build:
     commands:
-      - yarn start
-      - yarn build
+      - npn start
+      - npn build
 
 artifacts:
   files:
