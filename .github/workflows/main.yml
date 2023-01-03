@@ -19,7 +19,7 @@ jobs:
        run: yarn install
 
      - name: Build static file
-       run: yarn start
+       run: yarn build start
 
      - name: Configure AWS Credentials
        uses: aws-actions/configure-aws-credentials@v1
