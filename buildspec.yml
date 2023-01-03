@@ -11,12 +11,6 @@ phases:
     commands:
       - npn start
       - npn run build
-
-  artifacts:
-  files:
-    - '**/*'
-  discard-paths: no
-  base-directory: build
   
   post_build:
     commands:
