@@ -6,11 +6,11 @@ phases:
       nodejs: 12
   pre_build:
     commands:
-      - npn install
+      - npm install
   build:
     commands:
-      - npn start
-      - npn run build
+      - npm start
+      - npm run build
   
   post_build:
     commands:
