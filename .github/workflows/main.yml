@@ -8,10 +8,6 @@ on:
 jobs:
  Deploy:
    runs-on: ubuntu-latest
-   
-   strategy:
-      matrix:
-        node-version: [15.x]
         
    steps:
      - name: Checkout
@@ -27,7 +23,7 @@ jobs:
        run: npm run build
 
      - name: Configure AWS Credentials
-       uses: siddharth387/SnapShot@v2
+       uses: jakejarvis/s3-sync-action@master
        with:
          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
