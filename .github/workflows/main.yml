@@ -8,6 +8,10 @@ on:
 jobs:
  Deploy:
    runs-on: ubuntu-latest
+   
+   strategy:
+      matrix:
+        node-version: [15.x]
         
    steps:
      - name: Checkout
@@ -17,13 +21,10 @@ jobs:
        uses: actions/setup-node@v2
 
      - name: Install dependencies
-       run: yarn install
-       
-     - name: Install dependencies 
-       run: yarn build
+       run: npm install
 
      - name: Build static file
-       run: yarn start
+       run: npm run start
 
      - name: Configure AWS Credentials
        uses: aws-actions/configure-aws-credentials@v1
